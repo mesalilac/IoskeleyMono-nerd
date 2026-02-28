@@ -1,4 +1,17 @@
-# IoskeleyMono
+# IoskeleyMono nerd font
+
+
+bash script used to patch fonts
+```bash
+for f in ~/Downloads/IoskeleyMono-TTF-Unhinted/TTF-Unhinted/IoskeleyMono*.ttf; do 
+    filename=$(basename "$f" .ttf)
+    variant="${filename#IoskeleyMono-}"
+    shortname="IoskNerdFontMono-${variant}"
+    fontforge -script font-patcher "$f"  -c --mono --name "$shortname" --out TTF-Unhinted
+done
+```
+
+### **NOTE**: the family name is `ioskNerdFontMono` becuase otherwise it will exceed 31 chars with the default font-patcher names
 
 ![Ioskeley Mono Cover](assets/SocialPreview.png)
 
